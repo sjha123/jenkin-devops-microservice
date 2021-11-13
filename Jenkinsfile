@@ -10,7 +10,7 @@
 //	}
 //}
 pipeline {
-	agents any 
+	agent any 
 
 	stages{
 			stage('Build'){
@@ -35,11 +35,11 @@ pipeline {
 		{
 			echo "I will run always"
 		}
-		SUCCESS
+		success
 		{
 			echo "I will run when success"
 		}
-		FAILURE
+		failure
 		{
 		   echo "I will run when PIPLINE FAILED"
 		}
