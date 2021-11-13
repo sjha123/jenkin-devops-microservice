@@ -13,7 +13,7 @@ pipeline {
 	agents any 
 
 	stages{
-			stage(Build){
+			stage('Build'){
 				steps {
 				echo "Build"
 				echo "Path - $PATH"
@@ -23,7 +23,7 @@ pipeline {
 			 }
 		}
 		
-		stage(Test){
+		stage('Test'){
 				steps {
 				echo "Test"
 			 }
