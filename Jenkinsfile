@@ -1,11 +1,52 @@
-node {
-	stage('Build') {
-		echo "Build"
+//node {
+//	stage('Build') {
+//		echo "Build"
+//	}
+//	stage('Test') {
+//		echo "Test"
+//	}
+//	stage('IntegrationTest') {
+//		echo "IntegrationTest"
+//	}
+//}
+pipeline {
+	agents any 
+
+	stages{
+			stage(Build){
+				steps {
+				echo "Build"
+				echo "Path - $PATH"
+				echo "Build No- $env.BUILD_NUMBER"
+				echo "Build ID- $env.BUILD_ID"
+				echo "job Name- $env.JOB_NAME"
+			 }
+		}
+		
+		stage(Test){
+				steps {
+				echo "Test"
+			 }
+		}
 	}
-	stage('Test') {
-		echo "Test"
+
+	post{
+        always 
+		{
+			echo "I will run always"
+		}
+		SUCCESS
+		{
+			echo "I will run when success"
+		}
+		FAILURE
+		{
+		   echo "I will run when PIPLINE FAILED"
+		}
+
 	}
-	stage('IntegrationTest') {
-		echo "IntegrationTest"
-	}
+
+
 }
+
+
